@@ -378,10 +378,16 @@ window.setInterval(() => {
           const headerrate =
             (8 * (headerBytes - lastResult.get(report.id).headerBytesSent)) /
             deltaT;
+            document.getElementById("bitrate").innerHTML=`Time: - ${now} || bitrate: - ${bitrate}`;
+            document.getElementById("headerrate").innerHTML=`Time:- ${now} || headerrate: - ${headerrate}`;
+            document.getElementById("targetBitrate").innerHTML=`Time: - ${now} || targetBitrate: - ${report.targetBitrate}`;
+            
+            
+
           console.log("bitrate" + now, bitrate);
           console.log("headerrate" + now, headerrate);
           console.log("targetBitrate" + now, report.targetBitrate);
-          console.log("targetBitrate" + now, report.targetBitrate);
+          
           console.log(
             "packets" + now,
             (packets - lastResult.get(report.id).packetsSent) / deltaT
